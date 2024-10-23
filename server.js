@@ -8,6 +8,9 @@ dotenv.config();
 
 const app = express();
 
+//default middleware for req for body
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.status(200).send("Welcome to our API"); // Correct parameter order
 });
@@ -18,9 +21,9 @@ app.get("/", (req, res) => {
 app.use('/api/product',ProductRoute);
 
 
-//default middleware for req for body
 
-app.use(express.json());
+
+
 
 const port = process.env.PORT || 5000;
 
